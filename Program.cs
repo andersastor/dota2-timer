@@ -37,7 +37,7 @@ namespace dota2_timer
 
         private static void SetTimers()
         {
-            double fifteenSeconds = 1000 * 30;
+            double thirtySeconds = 1000 * 30;
             double twoMinutes = 1000 * 60 * 2;
             double threeMinutes = 1000 * 60 * 3;
             double sevenMinutes = 1000 * 60 * 7;
@@ -93,7 +93,7 @@ namespace dota2_timer
             tierFiveTimer.AutoReset = false;
             tierFiveTimer.Enabled = true;
 
-            resetTimer = new System.Timers.Timer(fifteenSeconds);
+            resetTimer = new System.Timers.Timer(thirtySeconds);
             resetTimer.Elapsed += delegate { resetElapsed(); };
             resetTimer.AutoReset = false;
         }
