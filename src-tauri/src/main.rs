@@ -11,6 +11,7 @@ use tauri::{Manager, AppHandle};
 use tokio::sync::{mpsc, Mutex};
 use tracing_subscriber;
 use sysinfo::{System, SystemExt};
+use tauri_plugin_aptabase::EventTracker;
 
 struct AsyncProcInputTx {
     _inner: Mutex<mpsc::Sender<String>>,
@@ -48,8 +49,11 @@ fn main() {
                 
             });
 
+            app.track_event("app_started", None);
+
             Ok(())
         })
+        .plugin(tauri_plugin_aptabase::Builder::new("A-EU-2127299838").build())
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
