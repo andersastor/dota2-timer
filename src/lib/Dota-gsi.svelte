@@ -1,7 +1,7 @@
 <script lang="ts">
   import { invoke } from "@tauri-apps/api/tauri"
   import { listen } from '@tauri-apps/api/event'
-  import { clock_time } from "./stores";
+  import { clock_time } from "../util/stores";
   import TimerList from "./timer-list.svelte";
 
 
@@ -25,7 +25,7 @@
 
 </script>
 
-<div style="display: grid; grid-template-columns: auto auto;">
+<div style="display: grid; grid-template-columns: auto auto; margin: 8px;">
   
   {#await doProcessRunningCheck then result}
     {#if result == false}

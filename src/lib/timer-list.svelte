@@ -1,8 +1,8 @@
 <script lang="ts">
   import TimerListItem from "./timer-list-item.svelte";
-  import { timer_list_items } from "./stores";
+  import { timer_list_items } from "../util/stores";
   import { onMount, onDestroy } from 'svelte';
-  import { TypeOfSpawn } from "./types";
+  import { TypeOfSpawn } from "../util/types";
     
   let unsubscribe;
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { clock_time, timer_list_items } from "./stores";
+  import { clock_time, timer_list_items } from "../util/stores";
   import { onDestroy } from 'svelte';
 
   export let objAttributes = {} as {id, type, spawn_time};

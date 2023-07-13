@@ -1,9 +1,15 @@
 <script lang="ts">
   import Dotagsi from './lib/Dota-gsi.svelte'
+  import Header from './ui/Header.svelte';
+  import Footer from './ui/Footer.svelte';
 </script>
 
-<main class="container">
-  <div class="row">
+<Header />
+
+<main>
+  <div>
     <Dotagsi />
   </div>
 </main>
+
+<Footer />
