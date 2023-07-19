@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Dotagsi from './lib/Dota-gsi.svelte'
+  import Dotagsi from './lib/dota-gsi.svelte'
   import Header from './ui/Header.svelte';
   import Footer from './ui/Footer.svelte';
 </script>
