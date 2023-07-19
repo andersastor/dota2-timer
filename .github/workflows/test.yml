@@ -33,16 +33,14 @@ jobs:
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps
 
+      - uses: actions-rs/cargo@v1
       - name: run backend lint
-        uses: actions-rs/cargo@v1
+        run: cd src-tauri
         with:
-          working-directory: ./src-tauri
           command: clippy
-
       - name: run backend tests
-        uses: actions-rs/cargo@v1
+        run: cd src-tauri
         with:
-          working-directory: ./src-tauri
           command: test
       
       - name: run frontend lint
