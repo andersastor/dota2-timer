@@ -34,8 +34,8 @@ jobs:
         run: pnpm exec playwright install --with-deps
 
       - name: run backend lint and tests
+        working-directory: ./src-tauri
         run: |
-          cd src-tauri 
           cargo clippy
           cargo test
       

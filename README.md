@@ -5,3 +5,4 @@
 Not really usable yet, core functionality is in place but installation and UI is not user friendly.
 
 To run, use command "pnpm run tauri dev".
+To run Playwright E2E tests, use command "pnpm exec playwright test".
