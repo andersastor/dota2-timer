@@ -1,5 +1,5 @@
 {#if show}
-  <nav transition:fly={{x: -250, opacity: 1}}>
+  <nav transition:fly|global={{x: -250, opacity: 1}}>
     <button  on:click={() => show = false}>x</button>
   </nav>
 {/if}
