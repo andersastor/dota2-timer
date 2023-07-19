@@ -109,3 +109,12 @@ async fn async_process_model(
 
     Ok(())
 }
+
+#[cfg(test)]
+mod tests {
+
+    #[test]
+    fn initial_test() {
+        assert_eq!(true, true);
+    }
+}
