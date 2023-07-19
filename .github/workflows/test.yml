@@ -35,14 +35,14 @@ jobs:
 
       - name: run backend lint
         uses: actions-rs/cargo@v1
-        working-directory: ./src-tauri
         with:
+          working-directory: ./src-tauri
           command: clippy
 
       - name: run backend tests
         uses: actions-rs/cargo@v1
-        working-directory: ./src-tauri
         with:
+          working-directory: ./src-tauri
           command: test
       
       - name: run frontend lint
