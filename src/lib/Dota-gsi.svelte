@@ -8,7 +8,7 @@
   async function promise() {
     await listen('rs2js', (event) => {       
       let input = event.payload
-      clock_time.update(n => Number(input));
+      clock_time.update(n => Number(input)); // eslint-disable-line @typescript-eslint/no-unused-vars
     });
   }
 

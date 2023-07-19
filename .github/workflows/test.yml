@@ -33,25 +33,37 @@ jobs:
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps
 
-      - name: Build the app
-        uses: tauri-apps/tauri-action@v0
+      - name: run backend lint
+        working-directory: ./src-tauri
+        uses: actions-rs/cargo@v1
+        with:
+          command: clippy
 
       - name: run backend tests
+        working-directory: ./src-tauri
         uses: actions-rs/cargo@v1
         with:
           command: test
       
+      - name: run frontend lint
+        run: pnpm lint
+
       - name: run frontend tests with coverage
         run: pnpm coverage
 
       - name: run playwright tests
         run: pnpm exec playwright test
-      - uses: actions/upload-artifact@v3
+
+      - name: upload playwright test results
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
+
+      - name: Build the app
+        uses: tauri-apps/tauri-action@v0
 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

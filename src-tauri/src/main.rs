@@ -9,7 +9,6 @@ use async_trait::async_trait;
 use dota::{GameStateHandler, GSIServer};
 use tauri::{Manager, AppHandle};
 use tokio::sync::{mpsc, Mutex};
-use tracing_subscriber;
 use sysinfo::{System, SystemExt};
 use tauri_plugin_aptabase::EventTracker;
 
@@ -61,11 +60,10 @@ fn main() {
 #[tauri::command]
 fn check_process_running() -> bool {
     let s = System::new_all();
-    for _process in s.processes_by_exact_name("dota2.exe") {
-        // Process is running if it is in list
-        return true;
+    if let Some(_process) = s.processes_by_exact_name("dota2.exe").next() {
+        return true
     }
-    return false;
+    false
 }
 
 #[derive(Clone, Debug)]

@@ -15,15 +15,15 @@
 
   const unsubscribe = clock_time.subscribe(time => {
     if (time >= (objAttributes.spawn_time) && time < (objAttributes.spawn_time + 30) && !current) {
-      current = true;
+		current = true;
     }
     if ((objAttributes.spawn_time + 60) > time && time >= (objAttributes.spawn_time + 30) && !faded) {
-      current = false;
-      faded = true;
+		current = false;
+		faded = true;
     }
     if (time >= (objAttributes.spawn_time + 60) && !removed) {
-	  removed = true;
-      removeFromList();
+		removed = true;
+		removeFromList();
     }
   });
 
@@ -31,7 +31,7 @@
 </script>
 <div class="{current === true ? 'box-current' : faded === true ? 'box-faded' : 'box'}">
 
-  	<li>{objAttributes.type}</li>
+	<li>{objAttributes.type}</li>
 	<li>spawn time: {objAttributes.spawn_time}</li>
 	<li>Spawning in: {objAttributes.spawn_time - $clock_time}</li>
   
