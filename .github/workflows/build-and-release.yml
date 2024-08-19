@@ -6,6 +6,8 @@ on:
 jobs:
 
   test:
+    permissions:
+      contents: write
     timeout-minutes: 60
     strategy:
       fail-fast: false
@@ -25,7 +27,7 @@ jobs:
       - name: setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: lts/*
           
       - name: install Rust stable
         uses: dtolnay/rust-toolchain@stable
@@ -68,8 +70,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           APTABASE_TOKEN: ${{ secrets.APTABASE_TOKEN }}
         with:
-          tagName: app-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version.
-          releaseName: 'App v__VERSION__'
+          tagName: v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version.
+          releaseName: 'v__VERSION__'
           releaseBody: 'See the assets to download this version and install.'
           releaseDraft: true
           prerelease: false

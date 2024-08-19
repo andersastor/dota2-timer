@@ -7,8 +7,7 @@
     "withGlobalTauri": false
   },
   "package": {
-    "productName": "dota2-timer",
-    "version": "0.0.1"
+    "productName": "dota2-timer"
   },
   "tauri": {
     "allowlist": {
