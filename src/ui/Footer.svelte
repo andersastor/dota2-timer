@@ -1,5 +1,5 @@
 <footer>
-    <div class="copyright">Copyright me</div>
+    <div class="copyright">https://github.com/andersastor/dota2-timer</div>
 </footer>
 
 <style>

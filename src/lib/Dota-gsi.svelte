@@ -1,22 +1,23 @@
 <script lang="ts">
-  import { invoke } from "@tauri-apps/api/tauri"
-  import { listen } from '@tauri-apps/api/event'
-  import { clock_time } from "../util/stores";
-  import TimerList from "./timer-list.svelte";
+	import { invoke } from "@tauri-apps/api/tauri"
+	import { listen } from '@tauri-apps/api/event'
+	import { clock_time } from "../util/stores";
+	import { formatTime } from "../util/time-formatting";
+	import TimerList from "./timer-list.svelte";
 
 
-  async function promise() {
-    await listen('rs2js', (event) => {       
-      let input = event.payload
-      clock_time.update(n => Number(input)); // eslint-disable-line @typescript-eslint/no-unused-vars
-    });
-  }
+	async function promise() {
+	    await listen('rs2js', (event) => {
+	        let input = event.payload
+	        clock_time.update(n => Number(input)); // eslint-disable-line @typescript-eslint/no-unused-vars
+	    });
+	}
 
-  let doProcessRunningCheck = checkProcessRunning();
+	let doProcessRunningCheck = checkProcessRunning();
 
-  async function checkProcessRunning(): Promise<boolean> {
-    return invoke('check_process_running');
-  }
+	async function checkProcessRunning(): Promise<boolean> {
+        return invoke('check_process_running');
+      }
 
   function retry() {
     doProcessRunningCheck = checkProcessRunning();
@@ -38,7 +39,7 @@
       
       <div style="grid-column: 2; grid-row: 2;">
         <h3>Clock time</h3>
-        {$clock_time}
+        {formatTime($clock_time)}
         <TimerList></TimerList>
       </div>
     {/if}

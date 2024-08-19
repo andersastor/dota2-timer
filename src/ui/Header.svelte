@@ -14,7 +14,7 @@
     <h1>
         Dota 2 timer
     </h1>
-    <button on:click={() => sidebar_show = !sidebar_show}>Toggle Sidebar</button>
+    <!--<button on:click={() => sidebar_show = !sidebar_show}>Toggle Sidebar</button>-->
 </header>
 
 <style>
