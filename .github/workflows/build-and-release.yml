@@ -86,3 +86,4 @@ jobs:
           upload_url: ${{ steps.release.outputs.releaseUploadUrl }}
           asset_path: D:\a\dota2-timer\dota2-timer\src-tauri\target\release\dota2-timer.exe
           asset_name: dota2-timer.exe
+          asset_content_type: application/octet-stream
