@@ -20,7 +20,3 @@ How to use:
 * After the game ends, the application needs to be restarted to reset the event list in order to be used again
 
 ![Alt](https://repobeats.axiom.co/api/embed/58311baecc3944fbeea0a080296fb9df8abf31b4.svg "Repobeats analytics image")
-
-
-To run, use command "pnpm run tauri dev".
-To run Playwright E2E tests, use command "pnpm exec playwright test".
