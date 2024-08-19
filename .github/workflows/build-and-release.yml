@@ -77,10 +77,11 @@ jobs:
           prerelease: false
           args: ${{ matrix.args }}
 
+      - name: Set latest tag
+        run: echo "latest_tag=$(git tag | sort --version-sort | tail -n1)" >> $GITHUB_ENV
+
       - name: Upload runnable .exe to release
-        run: |
-            latest_tag=$(git tag | sort --version-sort | tail -n1)
-            gh release upload $latest_tag D:\a\dota2-timer\dota2-timer\src-tauri\target\release\dota2-timer.exe
+        run: gh release upload ${{env.latest_tag}} D:\a\dota2-timer\dota2-timer\src-tauri\target\release\dota2-timer.exe
         env:
             GITHUB_TOKEN: ${{ github.TOKEN }}
         shell: bash
