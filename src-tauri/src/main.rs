@@ -5,6 +5,8 @@
     windows_subsystem = "windows"
 )]
 
+use std::env;
+use dotenv::dotenv;
 use async_trait::async_trait;
 use dota::{GameStateHandler, GSIServer};
 use tauri::{Manager, AppHandle};
@@ -22,6 +24,9 @@ fn main() {
     
     let (async_proc_input_tx, async_proc_input_rx) = mpsc::channel(1);
     let (async_proc_output_tx, mut _async_proc_output_rx) = mpsc::channel(1);
+
+    dotenv().ok();
+    let aptabase_token = env::var("APTABASE_TOKEN").expect("APTABASE_TOKEN not set");
     
     tauri::Builder::default()
         .manage(AsyncProcInputTx {
@@ -52,7 +57,7 @@ fn main() {
 
             Ok(())
         })
-        .plugin(tauri_plugin_aptabase::Builder::new("A-EU-2127299838").build())
+        .plugin(tauri_plugin_aptabase::Builder::new(&aptabase_token).build())
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
