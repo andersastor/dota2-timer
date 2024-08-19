@@ -71,9 +71,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           APTABASE_TOKEN: ${{ secrets.APTABASE_TOKEN }}
         with:
-          tagName: v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version.
+          tagName: v__VERSION__
           releaseName: 'v__VERSION__'
-          releaseBody: 'See the assets to download this version and install.'
+          releaseBody: 'Follow the installation instructions in the README for how to run this. https://github.com/andersastor/dota2-timer/blob/main/README.md'
           releaseDraft: true
           prerelease: false
           args: ${{ matrix.args }}
