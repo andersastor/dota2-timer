@@ -5,7 +5,7 @@ on:
 
 jobs:
 
-  test:
+  test-and-release:
     permissions:
       contents: write
     timeout-minutes: 60
@@ -73,14 +73,14 @@ jobs:
           tagName: v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version.
           releaseName: 'v__VERSION__'
           releaseBody: 'See the assets to download this version and install.'
-          releaseDraft: true
+          releaseDraft: false
           prerelease: false
           args: ${{ matrix.args }}
 
       - name: Upload runnable .exe to release
         run: |
-            cd ${{github.workspace}}
-            gh release upload ${{github.event.release.tag_name}} D:\a\dota2-timer\dota2-timer\src-tauri\target\release\dota2-timer.exe
+            latest_tag=$(git tag | sort --version-sort | tail -n1)
+            gh release upload ${{latest_tag}} D:\a\dota2-timer\dota2-timer\src-tauri\target\release\dota2-timer.exe
         env:
             GITHUB_TOKEN: ${{ github.TOKEN }}
         shell: bash
