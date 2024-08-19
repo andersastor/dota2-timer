@@ -80,7 +80,7 @@ jobs:
       - name: Upload runnable .exe to release
         run: |
             latest_tag=$(git tag | sort --version-sort | tail -n1)
-            gh release upload ${{latest_tag}} D:\a\dota2-timer\dota2-timer\src-tauri\target\release\dota2-timer.exe
+            gh release upload $latest_tag D:\a\dota2-timer\dota2-timer\src-tauri\target\release\dota2-timer.exe
         env:
             GITHUB_TOKEN: ${{ github.TOKEN }}
         shell: bash
