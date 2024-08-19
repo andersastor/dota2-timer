@@ -4,7 +4,7 @@ This is very much just a tech demo of what you can do with the dota GSI, as well
 
 Prerequisites:
 * In order for Dota 2 to expose the game data you need to enable it.
-* Add a .cfg file to the /cfg folder in your game installation, e.g. at D:\SteamLibrary\steamapps\common\dota 2 beta\game\dota\cfg
+* Add a folder named gamestate_integration containing a .cfg file to the /cfg folder in your Dota 2 game installation, e.g. at D:\SteamLibrary\steamapps\common\dota 2 beta\game\dota\cfg\gamestate_integration
 * A sample configuration file can be found [here](gamestate_integration_dota.cfg), just download the file or copy the content. It is important that the file is prefixed with gamestate_integration_, for example gamestate_integration_dota.cfg
 * In Steam, [add -gamestateintegration to your Dota 2 launch options](https://help.steampowered.com/en/faqs/view/7d01-d2dd-d75e-2955)
 
