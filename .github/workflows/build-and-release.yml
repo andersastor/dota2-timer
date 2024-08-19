@@ -27,7 +27,7 @@ jobs:
       - name: setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: lts/*
+          version: 8
           
       - name: install Rust stable
         uses: dtolnay/rust-toolchain@stable
