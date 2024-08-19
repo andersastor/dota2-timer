@@ -76,3 +76,11 @@ jobs:
           releaseDraft: true
           prerelease: false
           args: ${{ matrix.args }}
+
+      - name: Upload runnable .exe to release
+        run: |
+            cd ${{github.workspace}}
+            gh release upload ${{github.event.release.tag_name}} D:\a\dota2-timer\dota2-timer\src-tauri\target\release\dota2-timer.exe
+        env:
+            GITHUB_TOKEN: ${{ github.TOKEN }}
+        shell: bash
