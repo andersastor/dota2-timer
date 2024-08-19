@@ -9,7 +9,7 @@ Prerequisites:
 * In Steam, [add -gamestateintegration to your Dota 2 launch options](https://help.steampowered.com/en/faqs/view/7d01-d2dd-d75e-2955)
 
 Installation: 
-* Download the dota-2-timer.exe from the latest release on this page and run it
+* Download the dota-2-timer.exe from the latest release on [this page](https://github.com/andersastor/dota2-timer/releases/latest) and run it
 
 How to use:
 * Launch the application and your Dota 2 client
